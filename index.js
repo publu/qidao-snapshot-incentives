@@ -69,11 +69,15 @@ async function main() {
       let chainIdSum = 0;
       for (let i = 0; i < Object.keys(chainIdVaults).length; i++) {
         const vault = Object.keys(chainIdVaults)[i];
-        chainIdSum += choiceScoreMap.get(vault);
+        if(choiceScoreMap.get(vault)) {
+          chainIdSum += choiceScoreMap.get(vault);
+        }
       }
+
 
       let chainIdScoreSum = parseUnits(chainIdSum.toString());
       chainIdScoreSumMap.set(chainId, chainIdScoreSum);
+
 
       if (
         parseFloat(chainIdScoreSum.toString()) /
@@ -88,7 +92,7 @@ async function main() {
     for (let i = 0; i < choices.length; i++) {
       const choice = choices[i];
       const score = scores[i];
-      if (includedChainIds.includes(VAULTS[choice].chainId)) {
+      if (VAULTS[choice] && includedChainIds.includes(VAULTS[choice].chainId)) {
         includedChoices.push({
           name: choice,
           score: score,

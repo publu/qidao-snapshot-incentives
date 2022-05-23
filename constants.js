@@ -8,11 +8,17 @@ const BLOCK_TIMES_MS = {
 };
 
 const VAULTS = {
-  "MATIC (Polygon)": {
-    address: "0xa3fa99a148fa48d14ed51d610c367c61876997f1",
-    chainId: 137,
-    minCdr: 150,
+  "WETH (Optimism)": {
+    address: "0x062016cd29fabb26c52bab646878987fc9b0bc55",
+    chainId: 10,
+    minCdr: 130,
     collateralDecimals: 18,
+  },
+  "WBTC (Optimism)": {
+    address: "0xb9c8f0d3254007ee4b98970b94544e473cd610ec",
+    chainId: 10,
+    minCdr: 130,
+    collateralDecimals: 8,
   },
   "WETH (Polygon)": {
     address: "0x3fd939B017b31eaADF9ae50C7fF7Fa5c0661d47C",
@@ -25,6 +31,12 @@ const VAULTS = {
     chainId: 42161,
     minCdr: 130,
     collateralDecimals: 18,
+  },
+  "WBTC (Arbitrum)": {
+    address: "0xb237f4264938f0903f5ec120bb1aa4bee3562fff",
+    chainId: 42161,
+    minCdr: 130,
+    collateralDecimals: 8,
   },
   "WBTC (Polygon)": {
     address: "0x37131aEDd3da288467B6EBe9A77C523A700E6Ca1",
@@ -134,6 +146,24 @@ const VAULTS = {
     minCdr: 135,
     collateralDecimals: 18,
   },
+  "Yearn vault YFI (Fantom)": {
+    address: "0x6d6029557a06961aCC5F81e1ffF5A474C54e32Fd",
+    chainId: 250,
+    minCdr: 135,
+    collateralDecimals: 18,
+  },
+  "Yearn vault BTC (Fantom)": {
+    address: "0x571F42886C31f9b769ad243e81D06D0D144BE7B4",
+    chainId: 250,
+    minCdr: 135,
+    collateralDecimals: 18,
+  },
+  "Yearn vault ETH (Fantom)": {
+    address: "0x7aE52477783c4E3e5c1476Bbb29A8D029c920676",
+    chainId: 250,
+    minCdr: 135,
+    collateralDecimals: 18,
+  },
   "WFTM (Fantom)": {
     address: "0x1066b8FC999c1eE94241344818486D5f944331A0",
     chainId: 250,
@@ -150,6 +180,24 @@ const VAULTS = {
     address: "0xd6488d586E8Fcd53220e4804D767F19F5C846086",
     chainId: 250,
     minCdr: 130,
+    collateralDecimals: 18,
+  },
+  "SAND (Polygon)": {
+    address: "0x305f113ff78255d4F8524c8F50C7300B91B10f6A",
+    chainId: 137,
+    minCdr: 135,
+    collateralDecimals: 18,
+  },
+  "CEL (Polygon)": {
+    address: "0x178f1c95c85fe7221c7a6a3d6f12b7da3253eeae",
+    chainId: 137,
+    minCdr: 130,
+    collateralDecimals: 4,
+  },
+  "Wrapped MATIC (Polygon)": {
+    address: "0x305f113ff78255d4f8524c8f50c7300b91b10f6a",
+    chainId: 137,
+    minCdr: 120,
     collateralDecimals: 18,
   },
   "SUSHI (Fantom)": {
@@ -199,6 +247,24 @@ const VAULTS = {
     chainId: 43114,
     minCdr: 135,
     collateralDecimals: 18,
+  },
+  "WBTC (Avalanche)" : {
+    address: '0x1f8f7a1d38e41eaf0ed916def29bdd13f2a3f11a',
+    chainId: 43114,
+    minCdr: 130,
+    collateralDecimals: 8
+  },
+  "WAVAX (Avalanche)" : {
+    address: '0x73a755378788a4542a780002a75a7bae7f558730',
+    chainId: 43114,
+    minCdr: 130,
+    collateralDecimals: 18
+  },
+  "WETH (Avalanche)" : {
+    address: '0xa9122dacf3fccf1aae6b8ddd1f75b6267e5cbbb8',
+    chainId: 43114,
+    minCdr: 130,
+    collateralDecimals: 18
   },
   "ETH (Moonriver)": {
     address: "0x4a0474E3262d4DB3306Cea4F207B5d66eC8E0AA9",
