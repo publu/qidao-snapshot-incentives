@@ -1,8 +1,8 @@
 const fs = require("fs");
 const path = require("path");
 const fetch = require("isomorphic-fetch");
-const { BLOCK_TIMES_MS, VAULTS } = require("./constants");
-const { BigNumber, ethers } = require("ethers");
+const { VAULTS, QI_PER_SECOND} = require("./constants");
+const { BigNumber } = require("ethers");
 const { parseUnits } = require("ethers/lib/utils");
 
 const CHAIN_THRESHOLD_BP = 850;
@@ -19,8 +19,6 @@ const buildMap = (keys, values) => {
   }
   return map;
 };
-
-const QI_PER_POLYGON_BLOCK = BigNumber.from("65000000000000000");
 
 async function main() {
   const args = process.argv.slice(2);
@@ -45,25 +43,26 @@ async function main() {
       },
     } = await res.json();
 
-    const choiceScoreMap = buildMap(choices, scores);
+    const choiceScoreMap = buildMap(choices.map(c => c.trim()), scores);
 
     const scoreSum = parseUnits(
-      scores.reduce((prev, curr) => (prev += curr), 0).toString()
+      scores.reduce((prev, curr) => (prev + curr), 0).toString()
     );
 
     let includedChainIds = [];
     let chainIdScoreSumMap = new Map();
 
-    for (chainId of [
+    const chainIds = [
       ...new Set(
         choices.map((choice) =>
           VAULTS[choice] ? VAULTS[choice].chainId : console.log(choice)
         )
       ),
-    ]) {
+    ];
+    for (const chainId of chainIds) {
       const chainIdVaults = Object.filter(
         VAULTS,
-        (choice) => choice.chainId == chainId
+        (choice) => choice.chainId === chainId
       );
 
       let chainIdSum = 0;
@@ -101,7 +100,7 @@ async function main() {
     }
 
     let includedChoicesScoreSum = includedChoices.reduce(
-      (prev, curr) => (prev += curr.score),
+      (prev, curr) => (prev + curr.score),
       0
     );
 
@@ -112,8 +111,7 @@ async function main() {
       const { name, score } = choice;
       const meta = VAULTS[name];
       if (score > 0) {
-        const reward = QI_PER_POLYGON_BLOCK.mul(BLOCK_TIMES_MS[137])
-          .div(BigNumber.from(BLOCK_TIMES_MS[meta.chainId]))
+        const reward = BigNumber.from(Math.trunc(QI_PER_SECOND * 1e10)).mul(1e8)
           .mul(parseUnits(score.toString()))
           .div(parseUnits(includedChoicesScoreSum.toString()));
 
@@ -125,7 +123,7 @@ async function main() {
           vaultAddress: meta.address,
           minCdr,
           maxCdr,
-          rewardPerBlock: reward.toString(),
+          rewardPerSecond: reward.toString(),
           collateralDecimals: meta.collateralDecimals,
           startBlock: 18840162,
           endBlock: 99999999,
@@ -138,17 +136,17 @@ async function main() {
     [...new Set(borrowIncentives.map((b) => b.chainId))].forEach(
       (chainId) =>
         (values[chainId] = borrowIncentives.filter(
-          (incentive) => incentive.chainId == chainId
+          (incentive) => incentive.chainId === chainId
         ))
     );
     const fileName = path.join(__dirname, `/results/${args[0]}.json`);
     const output = JSON.stringify({
       ...values,
-    });
+    },null, 2);
     fs.writeFileSync(fileName, output);
   } else {
     console.log("Usage: node index.js <ProposalId>");
   }
 }
 
-main();
+void main();
