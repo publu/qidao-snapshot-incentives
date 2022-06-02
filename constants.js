@@ -1,11 +1,6 @@
-const BLOCK_TIMES_MS = {
-  137: 2250,
-  250: 900,
-  43114: 2100,
-  1285: 20200,
-  1666600000: 2000,
-  100: 5000,
-};
+const SECONDS_PER_WEEK = 604_800
+const QI_PER_WEEK = 180_000
+const QI_PER_SECOND = QI_PER_WEEK / SECONDS_PER_WEEK
 
 const VAULTS = {
   "WETH (Optimism)": {
@@ -14,7 +9,7 @@ const VAULTS = {
     minCdr: 130,
     collateralDecimals: 18,
   },
-  "WBTC (Optimism)": {
+  "WBTC (Optimism) ": {
     address: "0xb9c8f0d3254007ee4b98970b94544e473cd610ec",
     chainId: 10,
     minCdr: 130,
@@ -300,5 +295,5 @@ const VAULTS = {
 
 module.exports = {
   VAULTS,
-  BLOCK_TIMES_MS,
+  QI_PER_SECOND,
 };
