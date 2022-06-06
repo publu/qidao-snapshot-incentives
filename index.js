@@ -15,7 +15,7 @@ Object.filter = (obj, predicate) =>
 const buildMap = (keys, values) => {
   const map = new Map();
   for (let i = 0; i < keys.length; i++) {
-    map.set(keys[i], values[i]);
+    map.set(String(keys[i]).trim(), values[i]);
   }
   return map;
 };
@@ -52,14 +52,19 @@ async function main() {
     let includedChainIds = [];
     let chainIdScoreSumMap = new Map();
 
+
     const chainIds = [
       ...new Set(
-        choices.map((choice) =>
-          VAULTS[choice] ? VAULTS[choice].chainId : console.log(choice)
+        choices.map((choice_) =>{
+            let choice = choice_.trim()
+            return VAULTS[choice] ? VAULTS[choice].chainId : console.log(choice)
+          }
         )
       ),
     ];
+
     for (const chainId of chainIds) {
+
       const chainIdVaults = Object.filter(
         VAULTS,
         (choice) => choice.chainId === chainId
@@ -68,6 +73,7 @@ async function main() {
       let chainIdSum = 0;
       for (let i = 0; i < Object.keys(chainIdVaults).length; i++) {
         const vault = Object.keys(chainIdVaults)[i];
+
         if(choiceScoreMap.get(vault)) {
           chainIdSum += choiceScoreMap.get(vault);
         }
@@ -89,7 +95,7 @@ async function main() {
 
     let includedChoices = [];
     for (let i = 0; i < choices.length; i++) {
-      const choice = choices[i];
+      const choice = String(choices[i]).trim();
       const score = scores[i];
       if (VAULTS[choice] && includedChainIds.includes(VAULTS[choice].chainId)) {
         includedChoices.push({
@@ -114,6 +120,8 @@ async function main() {
         const reward = BigNumber.from(Math.trunc(QI_PER_SECOND * 1e10)).mul(1e8)
           .mul(parseUnits(score.toString()))
           .div(parseUnits(includedChoicesScoreSum.toString()));
+
+        console.log("name: ", name)
 
         const minCdr = meta.minCdr / 100 + 0.25;
         const maxCdr = meta.minCdr / 100 + 2.7;
