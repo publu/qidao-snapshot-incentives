@@ -5,7 +5,7 @@ const { VAULTS, QI_PER_SECOND} = require("./constants");
 const { BigNumber } = require("ethers");
 const { parseUnits } = require("ethers/lib/utils");
 
-const CHAIN_THRESHOLD_BP = 850;
+const CHAIN_THRESHOLD_BP = 833;
 
 Object.filter = (obj, predicate) =>
   Object.keys(obj)

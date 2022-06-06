@@ -126,7 +126,7 @@ const VAULTS = {
   "vGHST (Polygon)": {
     address: "0x1F0aa72b980d65518e88841bA1dA075BD43fa933",
     chainId: 137,
-    minCdr: 130,
+    minCdr: 135,
     collateralDecimals: 18,
   },
   "WETH (Fantom)": {
@@ -186,7 +186,7 @@ const VAULTS = {
   "CEL (Polygon)": {
     address: "0x178f1c95c85fe7221c7a6a3d6f12b7da3253eeae",
     chainId: 137,
-    minCdr: 130,
+    minCdr: 135,
     collateralDecimals: 4,
   },
   "Wrapped MATIC (Polygon)": {
@@ -291,6 +291,24 @@ const VAULTS = {
     minCdr: 130,
     collateralDecimals: 18,
   },
+  "GNO (Gnosis Chain)": {
+    address: "0x014a177e9642d1b4e970418f894985dc1b85657f",
+    chainId: 100,
+    minCdr: 130,
+    collateralDecimals: 18,
+  },
+  "BNB (BNB)": {
+    address: "0xa56f9a54880afbc30cf29bb66d2d9adcdcaeadd6",
+    chainId: 56,
+    minCdr: 130,
+    collateralDecimals: 18,
+  },
+  "CAKE (BNB)": {
+    address: "0x014a177e9642d1b4e970418f894985dc1b85657f",
+    chainId: 56,
+    minCdr: 130,
+    collateralDecimals: 18,
+  }
 };
 
 module.exports = {
