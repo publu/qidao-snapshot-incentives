@@ -177,6 +177,12 @@ const VAULTS = {
     minCdr: 130,
     collateralDecimals: 18,
   },
+  "xBOO (Fantom)": {
+    address: "0x3f6cf10e85e9c0630856599fab8d8bfcd9c0e7d4",
+    chainId: 250,
+    minCdr: 135,
+    collateralDecimals: 18,
+  },
   "SAND (Polygon)": {
     address: "0x305f113ff78255d4F8524c8F50C7300B91B10f6A",
     chainId: 137,
@@ -305,6 +311,12 @@ const VAULTS = {
   },
   "CAKE (BNB)": {
     address: "0x014a177e9642d1b4e970418f894985dc1b85657f",
+    chainId: 56,
+    minCdr: 130,
+    collateralDecimals: 18,
+  },
+  "DODO (BNB)": {
+    address: "0x7333fd58d8d73a8e5fc1a16c8037ada4f580fa2b",
     chainId: 56,
     minCdr: 130,
     collateralDecimals: 18,
