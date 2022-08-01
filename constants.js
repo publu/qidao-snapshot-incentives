@@ -320,7 +320,19 @@ const VAULTS = {
     chainId: 56,
     minCdr: 130,
     collateralDecimals: 18,
-  }
+  },
+  "METIS (Metis)": {
+    address: "0x10dcbee8afa39a847707e16aea5eb34c6b01aba9",
+    chainId: 1088,
+    minCdr: 155,
+    collateralDecimals: 18,
+  },
+  "OP (Optimism)": {
+    address: "0xbf1aea8670d2528e08334083616dd9c5f3b087ae",
+    chainId: 10,
+    minCdr: 155,
+    collateralDecimals: 18,
+  },
 };
 
 module.exports = {
