@@ -52,12 +52,11 @@ async function main() {
     let includedChainIds = [];
     let chainIdScoreSumMap = new Map();
 
-
     const chainIds = [
       ...new Set(
         choices.map((choice_) =>{
             let choice = choice_.trim()
-            return VAULTS[choice] ? VAULTS[choice].chainId : console.log(choice)
+            return VAULTS[choice] ? VAULTS[choice].chainId : console.log("missing:", choice)
           }
         )
       ),
@@ -79,10 +78,8 @@ async function main() {
         }
       }
 
-
       let chainIdScoreSum = parseUnits(chainIdSum.toString());
       chainIdScoreSumMap.set(chainId, chainIdScoreSum);
-
 
       if (
         parseFloat(chainIdScoreSum.toString()) /
@@ -102,6 +99,8 @@ async function main() {
           name: choice,
           score: score,
         });
+      }else{
+        console.log("not getting any: ", choice)
       }
     }
 
@@ -116,7 +115,9 @@ async function main() {
       const choice = includedChoices[i];
       const { name, score } = choice;
       const meta = VAULTS[name];
-      if (score > 0) {
+
+      const percentage = (score/includedChoicesScoreSum)*100;
+      if (score > 0 && percentage>=0.00001) {
         const reward = BigNumber.from(Math.trunc(QI_PER_SECOND * 1e10)).mul(1e8)
           .mul(parseUnits(score.toString()))
           .div(parseUnits(includedChoicesScoreSum.toString()));

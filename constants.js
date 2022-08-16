@@ -5,13 +5,13 @@ const QI_PER_SECOND = QI_PER_WEEK / SECONDS_PER_WEEK
 const VAULTS = {
   "WBTC (Optimism)": {
     address: "0xb9c8f0d3254007ee4b98970b94544e473cd610ec",
-    chainId: "10",
+    chainId: 10,
     minCdr: 130,
     collateralDecimals: 8,
   },
   "WETH (Optimism)": {
     address: "0x062016cd29fabb26c52bab646878987fc9b0bc55",
-    chainId: "10",
+    chainId: 10,
     minCdr: 130,
     collateralDecimals: 18,
   },
@@ -332,6 +332,24 @@ const VAULTS = {
     chainId: 10,
     minCdr: 155,
     collateralDecimals: 18,
+  },
+  "xxLINK (Polygon)": {
+    address: "0x11826d20b6a16a22450978642404da95b4640123",
+    chainId: 137,
+    minCdr: 150,
+    collateralDecimals: 18,
+  },
+  "WETH (Metis)": {
+    address: "0xc09c73f7b32573d178138e76c0e286ba21085c20",
+    chainId: 1088,
+    minCdr: 130,
+    collateralDecimals: 18,
+  },
+  "WBTC (Metis)": {
+    address: "0xb89c1b3d9f335b9d8bb16016f3d60160ae71041f",
+    chainId: 1088,
+    minCdr: 130,
+    collateralDecimals: 8,
   },
 };
 
