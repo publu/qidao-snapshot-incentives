@@ -5,7 +5,7 @@
       "vaultAddress": "0x305f113ff78255d4f8524c8f50c7300b91b10f6a",
       "minCdr": 1.45,
       "maxCdr": 3.9000000000000004,
-      "rewardPerSecond": "28497868293229",
+      "rewardPerSecond": "36083783658953",
       "collateralDecimals": 18,
       "startBlock": 18840162,
       "endBlock": 99999999,
@@ -16,7 +16,7 @@
       "vaultAddress": "0x3fd939B017b31eaADF9ae50C7fF7Fa5c0661d47C",
       "minCdr": 1.55,
       "maxCdr": 4,
-      "rewardPerSecond": "37273822785025053",
+      "rewardPerSecond": "37274548519698800",
       "collateralDecimals": 18,
       "startBlock": 18840162,
       "endBlock": 99999999,
@@ -27,7 +27,7 @@
       "vaultAddress": "0x37131aEDd3da288467B6EBe9A77C523A700E6Ca1",
       "minCdr": 1.55,
       "maxCdr": 4,
-      "rewardPerSecond": "37202102642088544",
+      "rewardPerSecond": "37202380952380900",
       "collateralDecimals": 8,
       "startBlock": 18840162,
       "endBlock": 99999999,
@@ -38,7 +38,7 @@
       "vaultAddress": "0x61167073E31b1DAd85a3E531211c7B8F1E5cAE72",
       "minCdr": 1.55,
       "maxCdr": 4,
-      "rewardPerSecond": "33853535569468",
+      "rewardPerSecond": "36083783658953",
       "collateralDecimals": 18,
       "startBlock": 18840162,
       "endBlock": 99999999,
@@ -49,7 +49,7 @@
       "vaultAddress": "0x11826d20b6a16a22450978642404da95b4640123",
       "minCdr": 1.75,
       "maxCdr": 4.2,
-      "rewardPerSecond": "22190649158292293",
+      "rewardPerSecond": "22191526950256300",
       "collateralDecimals": 18,
       "startBlock": 18840162,
       "endBlock": 99999999,
@@ -60,7 +60,7 @@
       "vaultAddress": "0x98B5F32dd9670191568b661a3e847Ed764943875",
       "minCdr": 1.55,
       "maxCdr": 4,
-      "rewardPerSecond": "2251132863002162",
+      "rewardPerSecond": "2237194586855110",
       "collateralDecimals": 18,
       "startBlock": 18840162,
       "endBlock": 99999999,
@@ -71,18 +71,7 @@
       "vaultAddress": "0x701A1824e5574B0b6b1c8dA808B184a7AB7A2867",
       "minCdr": 1.55,
       "maxCdr": 4,
-      "rewardPerSecond": "65957891384282164",
-      "collateralDecimals": 18,
-      "startBlock": 18840162,
-      "endBlock": 99999999,
-      "chainId": "137"
-    },
-    {
-      "name": "GHST (Polygon)",
-      "vaultAddress": "0xF086dEdf6a89e7B16145b03a6CB0C0a9979F1433",
-      "minCdr": 1.55,
-      "maxCdr": 4,
-      "rewardPerSecond": "858060016663",
+      "rewardPerSecond": "65961156528566800",
       "collateralDecimals": 18,
       "startBlock": 18840162,
       "endBlock": 99999999,
@@ -93,18 +82,7 @@
       "vaultAddress": "0x1F0aa72b980d65518e88841bA1dA075BD43fa933",
       "minCdr": 1.6,
       "maxCdr": 4.050000000000001,
-      "rewardPerSecond": "20897456233641293",
-      "collateralDecimals": 18,
-      "startBlock": 18840162,
-      "endBlock": 99999999,
-      "chainId": "137"
-    },
-    {
-      "name": "SAND (Polygon)",
-      "vaultAddress": "0x305f113ff78255d4F8524c8F50C7300B91B10f6A",
-      "minCdr": 1.6,
-      "maxCdr": 4.050000000000001,
-      "rewardPerSecond": "164642766997",
+      "rewardPerSecond": "20892510738534000",
       "collateralDecimals": 18,
       "startBlock": 18840162,
       "endBlock": 99999999,
@@ -115,7 +93,7 @@
       "vaultAddress": "0x88d84a85A87ED12B8f098e8953B322fF789fCD1a",
       "minCdr": 1.6,
       "maxCdr": 4.050000000000001,
-      "rewardPerSecond": "307449894934540",
+      "rewardPerSecond": "324754052930580",
       "collateralDecimals": 18,
       "startBlock": 18840162,
       "endBlock": 99999999,
@@ -126,18 +104,7 @@
       "vaultAddress": "0x11A33631a5B5349AF3F165d2B7901A4d67e561ad",
       "minCdr": 1.6,
       "maxCdr": 4.050000000000001,
-      "rewardPerSecond": "30483728781194954",
-      "collateralDecimals": 18,
-      "startBlock": 18840162,
-      "endBlock": 99999999,
-      "chainId": "137"
-    },
-    {
-      "name": "Compounding Aave AAVE (Polygon)",
-      "vaultAddress": "0x578375c3af7d61586c2C3A7BA87d2eEd640EFA40",
-      "minCdr": 1.6,
-      "maxCdr": 4.050000000000001,
-      "rewardPerSecond": "5089158885889",
+      "rewardPerSecond": "30490797191815600",
       "collateralDecimals": 18,
       "startBlock": 18840162,
       "endBlock": 99999999,
@@ -148,35 +115,11 @@
       "vaultAddress": "0x7dda5e1a389e0c1892caf55940f5fce6588a9ae0",
       "minCdr": 1.6,
       "maxCdr": 4.050000000000001,
-      "rewardPerSecond": "30485619800951577",
+      "rewardPerSecond": "30490797191815600",
       "collateralDecimals": 8,
       "startBlock": 18840162,
       "endBlock": 99999999,
       "chainId": "137"
-    }
-  ],
-  "42161": [
-    {
-      "name": "WETH (Arbitrum)",
-      "vaultAddress": "0xC76a3cBefE490Ae4450B2fCC2c38666aA99f7aa0",
-      "minCdr": 1.55,
-      "maxCdr": 4,
-      "rewardPerSecond": "50423489188540252",
-      "collateralDecimals": 18,
-      "startBlock": 18840162,
-      "endBlock": 99999999,
-      "chainId": "42161"
-    },
-    {
-      "name": "WBTC (Arbitrum)",
-      "vaultAddress": "0xb237f4264938f0903f5ec120bb1aa4bee3562fff",
-      "minCdr": 1.55,
-      "maxCdr": 4,
-      "rewardPerSecond": "77221399117552",
-      "collateralDecimals": 8,
-      "startBlock": 18840162,
-      "endBlock": 99999999,
-      "chainId": "42161"
     }
   ],
   "1088": [
@@ -215,6 +158,30 @@
           "address": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000"
         }
       ]
+    }
+  ],
+  "42161": [
+    {
+      "name": "WETH (Arbitrum)",
+      "vaultAddress": "0xC76a3cBefE490Ae4450B2fCC2c38666aA99f7aa0",
+      "minCdr": 1.55,
+      "maxCdr": 4,
+      "rewardPerSecond": "50409045771557900",
+      "collateralDecimals": 18,
+      "startBlock": 18840162,
+      "endBlock": 99999999,
+      "chainId": "42161"
+    },
+    {
+      "name": "WBTC (Arbitrum)",
+      "vaultAddress": "0xb237f4264938f0903f5ec120bb1aa4bee3562fff",
+      "minCdr": 1.55,
+      "maxCdr": 4,
+      "rewardPerSecond": "72167567317907",
+      "collateralDecimals": 8,
+      "startBlock": 18840162,
+      "endBlock": 99999999,
+      "chainId": "42161"
     }
   ]
 }
