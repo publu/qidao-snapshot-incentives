@@ -120,9 +120,11 @@ async function main() {
       if (score > 0 && percentage>=0.00001) {
         /*
           
-          Max and redistribute
+          1) Max 20% and redistribute
 
-          remove from includedChoicesScoreSum if too small
+          2) Remove chains that dont make it
+
+          3) Remove from includedChoicesScoreSum if too small
           
         */
         const reward = BigNumber.from(Math.trunc(QI_PER_SECOND * 1e10)).mul(1e8)
