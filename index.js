@@ -118,6 +118,13 @@ async function main() {
 
       const percentage = (score/includedChoicesScoreSum)*100;
       if (score > 0 && percentage>=0.00001) {
+        /*
+          
+          Max and redistribute
+
+          remove from includedChoicesScoreSum if too small
+          
+        */
         const reward = BigNumber.from(Math.trunc(QI_PER_SECOND * 1e10)).mul(1e8)
           .mul(parseUnits(score.toString()))
           .div(parseUnits(includedChoicesScoreSum.toString()));
