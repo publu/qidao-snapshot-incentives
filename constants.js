@@ -351,6 +351,54 @@ const VAULTS = {
     minCdr: 130,
     collateralDecimals: 8,
   },
+  "Beefy Aave ETH (Optimism)": {
+    address: "0xF9CE2522027bD40D3b1aEe4abe969831FE3BeAf5",
+    chainId: 10,
+    minCdr: 135,
+    collateralDecimals: 18,
+  },
+  "Beefy Aave BTC (Optimism)": {
+    address: "0xAB91c51b55F7Dd7B34F2FD7217506fD5b632B2B9",
+    chainId: 10,
+    minCdr: 130,
+    collateralDecimals: 18,
+  },
+  "Yearn WETH (Ethereum)": {
+    address: "0xEcbd32bD581e241739be1763DFE7a8fFcC844ae1",
+    chainId: 1,
+    minCdr: 125,
+    collateralDecimals: 18,
+  },
+  "Yearn LINK (Ethereum)": {
+    address: "0x60d133c666919B54a3254E0d3F14332cB783B733",
+    chainId: 1,
+    minCdr: 140,
+    collateralDecimals: 18,
+  },
+  "WBTC (Ethereum)": {
+    address: "0x8C45969aD19D297c9B85763e90D0344C6E2ac9d1",
+    chainId: 1,
+    minCdr: 120,
+    collateralDecimals: 8,
+  },
+  "WETH (Ethereum)": {
+    address: "0x98eb27E5F24FB83b7D129D789665b08C258b4cCF",
+    chainId: 1,
+    minCdr: 120,
+    collateralDecimals: 18,
+  },
+  "StakeDAO Curve ETH/stETH (Eth)": {
+    address: "0xcc61Ee649A95F2E2f0830838681f839BDb7CB823",
+    chainId: 1,
+    minCdr: 125,
+    collateralDecimals: 18,
+  },
+  "Yearn Curve ETH/stETH (Ethereum)": {
+    address: "0x82E90EB7034C1DF646bD06aFb9E67281AAb5ed28",
+    chainId: 1,
+    minCdr: 125,
+    collateralDecimals: 18,
+  }
 };
 
 module.exports = {
