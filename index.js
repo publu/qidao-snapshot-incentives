@@ -115,9 +115,30 @@ async function main() {
       const choice = includedChoices[i];
       const { name, score } = choice;
       const meta = VAULTS[name];
+      console.log(name)
+      const percentage = (score/includedChoicesScoreSum)*100;
+      if (!(score > 0 && percentage>=0.01)) {
+        includedChoicesScoreSum = includedChoicesScoreSum - score;
+        includedChoices.splice(i, 1)
+
+        const reward = BigNumber.from(Math.trunc(QI_PER_SECOND * 1e10)).mul(1e8)
+        .mul(parseUnits(score.toString()))
+        .div(parseUnits(includedChoicesScoreSum.toString()));
+        const weeklyReward = reward.mul("604800")
+        console.log("bye: ", name)
+      } else{
+        //console.log("not", name, percentage)
+        console.log("hello:", name)
+      }
+    }
+
+    for (let i = 0; i < includedChoices.length; i++) {
+      const choice = includedChoices[i];
+      const { name, score } = choice;
+      const meta = VAULTS[name];
+      console.log("name", name)
 
       const percentage = (score/includedChoicesScoreSum)*100;
-      if (score > 0 && percentage>=0.00001) {
         /*
           
           1) Max 20% and redistribute
@@ -127,11 +148,15 @@ async function main() {
           3) Remove from includedChoicesScoreSum if too small
           
         */
+      if ((percentage>=0.01)) {
+
         const reward = BigNumber.from(Math.trunc(QI_PER_SECOND * 1e10)).mul(1e8)
           .mul(parseUnits(score.toString()))
           .div(parseUnits(includedChoicesScoreSum.toString()));
+        const weeklyReward = reward.mul("604800")
+        //console.log("name: ", percentage, name, weeklyReward.toString().slice(0,-18),"." ,weeklyReward.toString().slice(-18))
 
-        console.log("name: ", name)
+        console.log(name+","+percentage+","+weeklyReward);
 
         const minCdr = meta.minCdr / 100 + 0.25;
         const maxCdr = meta.minCdr / 100 + 2.7;
@@ -147,9 +172,12 @@ async function main() {
           endBlock: 99999999,
           chainId: meta.chainId.toString(),
         });
+      } else{
+        console.log(name)
+        includedChoices.splice(i, 1)
       }
     }
-
+    console.log("Collateral Reward Count: ", includedChoices.length);
     let values = {};
     [...new Set(borrowIncentives.map((b) => b.chainId))].forEach(
       (chainId) =>
