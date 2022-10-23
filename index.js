@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const fetch = require("isomorphic-fetch");
-const { VAULTS, QI_PER_SECOND} = require("./constants");
+const { QI_PER_SECOND, fetchVaults} = require("./constants");
 const { BigNumber } = require("ethers");
 const { parseUnits } = require("ethers/lib/utils");
 
@@ -21,6 +21,7 @@ const buildMap = (keys, values) => {
 };
 
 async function main() {
+  const VAULTS = await fetchVaults()
   const args = process.argv.slice(2);
   if (args.length > 0) {
     const res = await fetch("https://hub.snapshot.org/graphql", {
@@ -114,7 +115,6 @@ async function main() {
     for (let i = 0; i < includedChoices.length; i++) {
       const choice = includedChoices[i];
       const { name, score } = choice;
-      const meta = VAULTS[name];
       console.log(name)
       const percentage = (score/includedChoicesScoreSum)*100;
       if (!(score > 0 && percentage>=0.01)) {
@@ -140,13 +140,13 @@ async function main() {
 
       const percentage = (score/includedChoicesScoreSum)*100;
         /*
-          
+
           1) Max 20% and redistribute
 
           2) Remove chains that dont make it
 
           3) Remove from includedChoicesScoreSum if too small
-          
+
         */
       if ((percentage>=0.01)) {
 
