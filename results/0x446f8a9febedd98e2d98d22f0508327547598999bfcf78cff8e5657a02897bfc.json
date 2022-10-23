@@ -1,0 +1,76 @@
+{
+  "1": [
+    {
+      "name": "WBTC (Ethereum)",
+      "vaultAddress": "0x8C45969aD19D297c9B85763e90D0344C6E2ac9d1",
+      "minCdr": 1.45,
+      "maxCdr": 3.9000000000000004,
+      "rewardPerSecond": "32899027778780393",
+      "collateralDecimals": 8,
+      "startBlock": 18840162,
+      "endBlock": 99999999,
+      "chainId": "1"
+    }
+  ],
+  "10": [
+    {
+      "name": "Beefy Aave ETH (Optimism)",
+      "vaultAddress": "0xF9CE2522027bD40D3b1aEe4abe969831FE3BeAf5",
+      "minCdr": 1.6,
+      "maxCdr": 4.050000000000001,
+      "rewardPerSecond": "171793123490938668",
+      "collateralDecimals": 18,
+      "startBlock": 18840162,
+      "endBlock": 99999999,
+      "chainId": "10"
+    }
+  ],
+  "137": [
+    {
+      "name": "WETH (Polygon)",
+      "vaultAddress": "0x3fd939B017b31eaADF9ae50C7fF7Fa5c0661d47C",
+      "minCdr": 1.55,
+      "maxCdr": 4,
+      "rewardPerSecond": "2502897520697939",
+      "collateralDecimals": 18,
+      "startBlock": 18840162,
+      "endBlock": 99999999,
+      "chainId": "137"
+    },
+    {
+      "name": "Frax Share (Polygon)",
+      "vaultAddress": "0xff2c44Fb819757225a176e825255a01B3B8BB051",
+      "minCdr": 1.55,
+      "maxCdr": 4,
+      "rewardPerSecond": "168307013385745",
+      "collateralDecimals": 18,
+      "startBlock": 18840162,
+      "endBlock": 99999999,
+      "chainId": "137"
+    },
+    {
+      "name": "Compounding Aave AAVE (Polygon)",
+      "vaultAddress": "0x578375c3af7d61586c2C3A7BA87d2eEd640EFA40",
+      "minCdr": 1.6,
+      "maxCdr": 4.050000000000001,
+      "rewardPerSecond": "30789520497996",
+      "collateralDecimals": 18,
+      "startBlock": 18840162,
+      "endBlock": 99999999,
+      "chainId": "137"
+    }
+  ],
+  "1088": [
+    {
+      "name": "METIS (Metis)",
+      "vaultAddress": "0x10dcbee8afa39a847707e16aea5eb34c6b01aba9",
+      "minCdr": 1.8,
+      "maxCdr": 4.25,
+      "rewardPerSecond": "3175250784982077",
+      "collateralDecimals": 18,
+      "startBlock": 18840162,
+      "endBlock": 99999999,
+      "chainId": "1088"
+    }
+  ]
+}
