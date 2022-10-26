@@ -117,7 +117,7 @@ async function main() {
       const { name, score } = choice;
       console.log(name)
       const percentage = (score/includedChoicesScoreSum)*100;
-      if (!(score > 0 && percentage>=0.01)) {
+      if (score >= 1 && !(percentage>=0.01)) {
         includedChoicesScoreSum = includedChoicesScoreSum - score;
         includedChoices.splice(i, 1)
 
