@@ -122,7 +122,7 @@ async function main() {
       const choice = includedChoices[i];
       const { name, score } = choice;
       const percentage = (score/includedChoicesScoreSum)*100;
-      if (!(percentage>=0.0019)) {
+      if (!(percentage>=0.002)) {
         console.log("bye: ", name)
       } else{
         if(percentage>=maxPercentage){
