@@ -118,33 +118,47 @@ async function main() {
     let maxRunoff=100; // when you hit a cap, the extra % is distributed amongst the rest
     let keep = [];
 
-    for (let i = 0; i < includedChoices.length; i++) {
-      const choice = includedChoices[i];
-      const { name, score } = choice;
-      const percentage = (score/includedChoicesScoreSum)*100;
-      if (!(percentage>=0.002)) {
-        console.log("bye: ", name)
-      } else{
-        if(percentage>=maxPercentage){
-          winners.push({
-            name: name,
-            percentage: maxPercentage,
-          })
-          maxRunoff-=maxPercentage;
-        }else{
-          // runoff
-          keep.push(choice)
+    let cont = true;
+    let w = 1;
+    while(cont) {
+      cont=false;
+      console.log(w++)
+      for (let i = 0; i < includedChoices.length; i++) {        
+        console.log(i, includedChoices.length)
+        const choice = includedChoices[i];
+        let { name, score, percentage } = choice;
+
+        if(!percentage){
+          percentage = (score/includedChoicesScoreSum)*100;
+        }
+
+        if (!(percentage>=0.002)) {
+          console.log("bye: ", name)
+        } else{
+          if(percentage>=maxPercentage){
+            cont=true;
+            winners.push({
+              name: name,
+              percentage: maxPercentage,
+            })
+            maxRunoff-=maxPercentage;
+          }else{
+            // runoff
+            keep.push(choice)
+          }
         }
       }
+
+      includedChoices = keep;
+      keep = [];
+      includedChoicesScoreSum = includedChoices.reduce(
+        (prev, curr) => (prev + curr.score),
+        0
+      );
     }
 
-    includedChoices = keep;
-    includedChoicesScoreSum = includedChoices.reduce(
-      (prev, curr) => (prev + curr.score),
-      0
-    );
     // calculate the rest
-    for (let i = 0; i < keep.length; i++) {
+    for (let i = 0; i < includedChoices.length; i++) {
       const choice = includedChoices[i];
       const { name, score } = choice;
       const percentage = (score/includedChoicesScoreSum)*maxRunoff;
