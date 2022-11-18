@@ -5,7 +5,7 @@ const { QI_PER_SECOND, fetchVaults} = require("./constants");
 const { BigNumber } = require("ethers");
 const { parseUnits } = require("ethers/lib/utils");
 
-const CHAIN_THRESHOLD_BP = 833;
+const CHAIN_THRESHOLD_BP = 500;
 
 Object.filter = (obj, predicate) =>
   Object.keys(obj)
@@ -112,33 +112,69 @@ async function main() {
 
     let borrowIncentives = [];
 
+
+    let winners = []; // list of collaterals who reach cap of 15%
+    let maxPercentage = 15; // capped percentage
+    let maxRunoff=100; // when you hit a cap, the extra % is distributed amongst the rest
+    let keep = [];
+
     for (let i = 0; i < includedChoices.length; i++) {
       const choice = includedChoices[i];
       const { name, score } = choice;
-      console.log(name)
       const percentage = (score/includedChoicesScoreSum)*100;
-      if (score >= 1 && !(percentage>=0.01)) {
-        includedChoicesScoreSum = includedChoicesScoreSum - score;
-        includedChoices.splice(i, 1)
-
-        const reward = BigNumber.from(Math.trunc(QI_PER_SECOND * 1e10)).mul(1e8)
-        .mul(parseUnits(score.toString()))
-        .div(parseUnits(includedChoicesScoreSum.toString()));
-        const weeklyReward = reward.mul("604800")
+      if (!(percentage>=0.0019)) {
         console.log("bye: ", name)
       } else{
-        //console.log("not", name, percentage)
-        console.log("hello:", name)
+        if(percentage>=maxPercentage){
+          winners.push({
+            name: name,
+            percentage: maxPercentage,
+          })
+          maxRunoff-=maxPercentage;
+        }else{
+          // runoff
+          keep.push(choice)
+        }
       }
     }
 
-    for (let i = 0; i < includedChoices.length; i++) {
+    includedChoices = keep;
+    includedChoicesScoreSum = includedChoices.reduce(
+      (prev, curr) => (prev + curr.score),
+      0
+    );
+    // calculate the rest
+    for (let i = 0; i < keep.length; i++) {
       const choice = includedChoices[i];
       const { name, score } = choice;
-      const meta = VAULTS[name];
-      console.log("name", name)
+      const percentage = (score/includedChoicesScoreSum)*maxRunoff;
 
-      const percentage = (score/includedChoicesScoreSum)*100;
+      winners.push({
+        name: name,
+        percentage: percentage,
+      })
+    }
+
+    includedChoices = winners;
+    includedChoicesScoreSum = winners.reduce(
+      (prev, curr) => (prev + curr.percentage),
+      0
+    );
+
+    includedChoices.sort(function(a, b) {
+        return parseFloat(b.percentage) - parseFloat(a.percentage);
+    });
+
+    console.log(includedChoicesScoreSum)
+    console.log(includedChoices)
+
+    for (let i = 0; i < includedChoices.length; i++) {
+      const choice = includedChoices[i];
+      const { name, percentage } = choice;
+      const meta = VAULTS[name.name];
+
+      const extradecimals = 100000;
+      const score = percentage*extradecimals;
         /*
 
           1) Max 20% and redistribute
@@ -148,34 +184,27 @@ async function main() {
           3) Remove from includedChoicesScoreSum if too small
 
         */
-      if ((percentage>=0.01)) {
-
-        const reward = BigNumber.from(Math.trunc(QI_PER_SECOND * 1e10)).mul(1e8)
+      const reward = BigNumber.from(Math.trunc(QI_PER_SECOND * 1e10)).mul(1e8)
           .mul(parseUnits(score.toString()))
-          .div(parseUnits(includedChoicesScoreSum.toString()));
-        const weeklyReward = reward.mul("604800")
-        //console.log("name: ", percentage, name, weeklyReward.toString().slice(0,-18),"." ,weeklyReward.toString().slice(-18))
+          .div(parseUnits(includedChoicesScoreSum.toString()))
+          .div(extradecimals);
+      const weeklyReward = reward.mul("604800")
+      //console.log("name: ", percentage, name, weeklyReward.toString().slice(0,-18),"." ,weeklyReward.toString().slice(-18))
 
-        console.log(name+","+percentage+","+weeklyReward);
+      const minCdr = meta.minCdr / 100 + 0.25;
+      const maxCdr = meta.minCdr / 100 + 2.7;
 
-        const minCdr = meta.minCdr / 100 + 0.25;
-        const maxCdr = meta.minCdr / 100 + 2.7;
-
-        borrowIncentives.push({
-          name,
-          vaultAddress: meta.address,
-          minCdr,
-          maxCdr,
-          rewardPerSecond: reward.toString(),
-          collateralDecimals: meta.collateralDecimals,
-          startBlock: 18840162,
-          endBlock: 99999999,
-          chainId: meta.chainId.toString(),
-        });
-      } else{
-        console.log(name)
-        includedChoices.splice(i, 1)
-      }
+      borrowIncentives.push({
+        name: name,
+        vaultAddress: meta.address,
+        minCdr,
+        maxCdr,
+        rewardPerSecond: reward.toString(),
+        collateralDecimals: meta.collateralDecimals,
+        startBlock: 18840162,
+        endBlock: 99999999,
+        chainId: meta.chainId.toString(),
+      });
     }
     console.log("Collateral Reward Count: ", includedChoices.length);
     let values = {};
