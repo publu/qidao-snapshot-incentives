@@ -1,0 +1,20 @@
+{
+  "symbol": "QiPowah",
+  "strategies": [
+    {
+      "name": "pagination",
+      "params": {
+        "limit": 170,
+        "symbol": "QiPowah",
+        "strategy": {
+          "name": "erc20-balance-of",
+          "params": {
+            "symbol": "QiPowah",
+            "address": "0x67C936721d8e3E76Dd7E4027E9581f2Dd4Cde67E",
+            "decimals": 18
+          }
+        }
+      }
+    }
+  ]
+}

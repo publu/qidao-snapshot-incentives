@@ -184,6 +184,8 @@ async function main() {
     console.log(includedChoicesScoreSum)
     console.log(includedChoices)
 
+    includedChoices.map(x=> console.log(x["name"],",",x["percentage"]))
+
     for (let i = 0; i < includedChoices.length; i++) {
       const choice = includedChoices[i];
       const { name, percentage } = choice;

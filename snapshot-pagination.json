@@ -1,0 +1,92 @@
+{
+  "limit": 170,
+  "symbol": "QiPowah",
+  "strategy": {
+    "name": "multichain",
+    "params": {
+      "symbol": "QiPowah",
+      "strategies": [
+        {
+          "name": "erc20-balance-of",
+          "params": {
+            "address": "0x559b7bfC48a5274754b08819F75C5F27aF53D53b",
+            "decimals": 18
+          },
+          "network": "1"
+        },
+        {
+          "name": "erc20-balance-of",
+          "params": {
+            "address": "0x3F56e0c36d275367b8C502090EDF38289b3dEa0d",
+            "decimals": 18
+          },
+          "network": "10"
+        },
+        {
+          "name": "erc20-balance-of",
+          "params": {
+            "address": "0xdDC3D26BAA9D2d979F5E2e42515478bf18F354D5",
+            "decimals": 18
+          },
+          "network": "56"
+        },
+        {
+          "name": "erc20-balance-of",
+          "params": {
+            "address": "0xdFA46478F9e5EA86d57387849598dbFB2e964b02",
+            "decimals": 18
+          },
+          "network": "100"
+        },
+        {
+          "name": "erc20-balance-of",
+          "params": {
+            "address": "0x67C936721d8e3E76Dd7E4027E9581f2Dd4Cde67E",
+            "decimals": 18
+          },
+          "network": "137"
+        },
+        {
+          "name": "erc20-balance-of",
+          "params": {
+            "address": "0xa9119a35829E55897d44b528d1Ff92ec4ac74669",
+            "decimals": 18
+          },
+          "network": "250"
+        },
+        {
+          "name": "erc20-balance-of",
+          "params": {
+            "address": "0xb9c8f0d3254007ee4b98970b94544e473cd610ec",
+            "decimals": 18
+          },
+          "network": "42161"
+        },
+        {
+          "name": "erc20-balance-of",
+          "params": {
+            "address": "0xA56F9A54880afBc30CF29bB66d2D9ADCdcaEaDD6",
+            "decimals": 18
+          },
+          "network": "43114"
+        },
+        {
+          "name": "erc20-balance-of",
+          "params": {
+            "address": "0x3F56e0c36d275367b8C502090EDF38289b3dEa0d",
+            "decimals": 18
+          },
+          "network": "1088"
+        },
+        {
+          "name": "erc20-balance-of",
+          "params": {
+            "address": "0x68Aa691a8819B07988B18923F712F3f4C8d36346",
+            "decimals": 18
+          },
+          "network": "250"
+        }
+      ]
+    }
+  }
+}
