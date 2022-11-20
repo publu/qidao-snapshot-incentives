@@ -151,10 +151,12 @@ async function main() {
 
       includedChoices = keep;
       keep = [];
+      /* 
+      // don't recount the total score, or your percentages will be off.
       includedChoicesScoreSum = includedChoices.reduce(
         (prev, curr) => (prev + curr.score),
         0
-      );
+      );*/
     }
 
     // calculate the rest
