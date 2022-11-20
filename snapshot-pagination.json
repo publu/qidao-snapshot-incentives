@@ -49,14 +49,6 @@
         {
           "name": "erc20-balance-of",
           "params": {
-            "address": "0xa9119a35829E55897d44b528d1Ff92ec4ac74669",
-            "decimals": 18
-          },
-          "network": "250"
-        },
-        {
-          "name": "erc20-balance-of",
-          "params": {
             "address": "0xb9c8f0d3254007ee4b98970b94544e473cd610ec",
             "decimals": 18
           },
