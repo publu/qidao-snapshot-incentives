@@ -187,7 +187,8 @@ async function main() {
     for (let i = 0; i < includedChoices.length; i++) {
       const choice = includedChoices[i];
       const { name, percentage } = choice;
-      const meta = VAULTS[name.name];
+
+      const meta = VAULTS[name];
 
       const extradecimals = 100000;
       const score = percentage*extradecimals;
